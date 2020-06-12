@@ -61,4 +61,22 @@ public class IntToEngTest {
 		String actual = IntToEng.translateEng(103);
 		assertThat(actual,is(expected));
 	}
+	@Test
+	public void translateEngで823がeight_hundred_twenty_threeになる() {
+		String expected = "eight hundred twenty three";
+		String actual = IntToEng.translateEng(823);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEngで999がnine_hundred_ninety_nineになる() {
+		String expected = "nine hundred ninety nine";
+		String actual = IntToEng.translateEng(999);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEngで959がnine_hundred_fifty_nineになる() {
+		String expected = "nine hundred fifty nine";
+		String actual = IntToEng.translateEng(959);
+		assertThat(actual,is(expected));
+	}
 }
