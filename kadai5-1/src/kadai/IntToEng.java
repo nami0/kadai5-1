@@ -1,5 +1,5 @@
 	package kadai;
-	
+
 	import java.util.Scanner;
 	public class IntToEng {
 	    // メインメソッド
@@ -18,48 +18,52 @@
 	    		return translateEngLastOneDigit(Integer.parseInt(x[0]));
 	    	}
 	    	if(x.length == 2) {
-	    		if(x[0].equals("1")) return translateEng1x(n);
-	    		if(x[0].equals("2")) answer = "twenty ";
-	    		if(x[0].equals("3")) answer = "thirty ";
-	    		if(x[0].equals("4")) answer = "fourty ";
-	    		if(x[0].equals("5")) answer = "fifty ";
-	    		if(x[0].equals("6")) answer = "sixty ";
-	    		if(x[0].equals("7")) answer = "seventy ";
-	    		if(x[0].equals("8")) answer = "eighty ";
-	    		if(x[0].equals("9")) answer = "ninety ";
+	    		if(x[0].equals("1")) return translateEng1x(x[1]);
+	    		if(x[0].equals("2")) answer = "twenty";
+	    		if(x[0].equals("3")) answer = "thirty";
+	    		if(x[0].equals("4")) answer = "fourty";
+	    		if(x[0].equals("5")) answer = "fifty";
+	    		if(x[0].equals("6")) answer = "sixty";
+	    		if(x[0].equals("7")) answer = "seventy";
+	    		if(x[0].equals("8")) answer = "eighty";
+	    		if(x[0].equals("9")) answer = "ninety";
+	    		if(!x[1].equals("0")) answer = answer + " ";
 	    		return answer + translateEngLastOneDigit(Integer.parseInt(x[1]));
 	    	}
 	    	if(x.length == 3) {
 	    		if(x[0].equals("1")) {
 	    			answer = "one hundred";
+	    			if(!x[1].equals("0")) answer = answer + " ";
 	    			if(x[1].equals("0")) {
+	    				if(!x[2].equals("0"))answer = answer + " ";
 	    				return answer + translateEngLastOneDigit(Integer.parseInt(x[2]));
 	    			}
-    				if(x[1].equals("1")) return translateEng1x(n);
-    	    		if(x[1].equals("2")) answer = "twenty ";
-    	    		if(x[1].equals("3")) answer = "thirty ";
-    	    		if(x[1].equals("4")) answer = "fourty ";
-    	    		if(x[1].equals("5")) answer = "fifty ";
-    	    		if(x[1].equals("6")) answer = "sixty ";
-    	    		if(x[1].equals("7")) answer = "seventy ";
-    	    		if(x[1].equals("8")) answer = "eighty ";
-    	    		if(x[1].equals("9")) answer = "ninety ";
+    				if(x[1].equals("1")) return answer+translateEng1x(x[2]);
+    				if(x[0].equals("2")) answer = "twenty";
+    	    		if(x[0].equals("3")) answer = "thirty";
+    	    		if(x[0].equals("4")) answer = "fourty";
+    	    		if(x[0].equals("5")) answer = "fifty";
+    	    		if(x[0].equals("6")) answer = "sixty";
+    	    		if(x[0].equals("7")) answer = "seventy";
+    	    		if(x[0].equals("8")) answer = "eighty";
+    	    		if(x[0].equals("9")) answer = "ninety";
+    	    		if(!x[1].equals("0")) answer = answer + " ";
     	    		return answer+translateEngLastOneDigit(Integer.parseInt(x[1]));
 	    		}
 	    	}
 	        return "";
 	    }
-	    static String translateEng1x(int n) {
-	    	if(n == 10) return "ten";
-	        if(n == 11) return "eleven";
-	        if(n == 12) return "twelve";
-	        if(n == 13) return "thirteen";
-	        if(n == 14) return "fourteen";
-	        if(n == 15) return "fifteen";
-	        if(n == 16) return "sixteen";
-	        if(n == 17) return "seventeen";
-	        if(n == 18) return "eighteen";
-	        if(n == 19) return "nineteen";
+	    static String translateEng1x(String n) {
+	    	if(n.equals("0")) return "ten";
+	        if(n.equals("1")) return "eleven";
+	        if(n.equals("2")) return "twelve";
+	        if(n.equals("3")) return "thirteen";
+	        if(n.equals("4")) return "fourteen";
+	        if(n.equals("5")) return "fifteen";
+	        if(n.equals("6")) return "sixteen";
+	        if(n.equals("7")) return "seventeen";
+	        if(n.equals("8")) return "eighteen";
+	        if(n.equals("9")) return "nineteen";
 	        return "";
 	    }
 	    static String translateEngLastOneDigit(int n) {
