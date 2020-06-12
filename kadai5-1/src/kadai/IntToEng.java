@@ -8,12 +8,19 @@ public class IntToEng {
         int input = sc.nextInt();
         System.out.println(translateEng(input));
     }
-
     // 数値を英訳する変換するメソッド
     static String translateEng(int n) {
     	String s = String.valueOf(n);
-    	if(s.length() == 1) return translateEngLastOneDigit(Integer.parseInt(s));
-        if(n == 10) return "ten";
+    	String[] x = s.split("");
+
+    	if(x.length == 1) return translateEngLastOneDigit(Integer.parseInt(x[0]));
+    	if(x.length == 2) {
+    		if(x[0] == "1") return translateEng1x(n);
+    	}
+        return "";
+    }
+    static String translateEng1x(int n) {
+    	if(n == 10) return "ten";
         if(n == 11) return "eleven";
         if(n == 12) return "twelve";
         if(n == 13) return "thirteen";
