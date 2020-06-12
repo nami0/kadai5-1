@@ -18,17 +18,7 @@
 	    		return translateEngLastOneDigit(x[0]);
 	    	}
 	    	if(x.length == 2) {
-	    		if(x[0].equals("1")) return translateEng1x(x[1]);
-	    		if(x[0].equals("2")) answer = "twenty";
-	    		if(x[0].equals("3")) answer = "thirty";
-	    		if(x[0].equals("4")) answer = "fourty";
-	    		if(x[0].equals("5")) answer = "fifty";
-	    		if(x[0].equals("6")) answer = "sixty";
-	    		if(x[0].equals("7")) answer = "seventy";
-	    		if(x[0].equals("8")) answer = "eighty";
-	    		if(x[0].equals("9")) answer = "ninety";
-	    		if(!x[1].equals("0")) answer = answer + " ";
-	    		return answer + translateEngLastOneDigit(x[1]);
+	    		return translateEngxx(x,answer,0);
 	    	}
 	    	if(x.length == 3) {
     			answer = translateEngLastOneDigit(x[0]) + " hundred";
@@ -37,22 +27,33 @@
     				if(!x[2].equals("0"))answer = answer + " ";
     				return answer + translateEngLastOneDigit(x[2]);
     			}
-				if(x[1].equals("1")) return answer+translateEng1x(x[2]);
-				if(x[1].equals("2")) answer = answer+"twenty";
-	    		if(x[1].equals("3")) answer = answer+"thirty";
-	    		if(x[1].equals("4")) answer = answer+"fourty";
-	    		if(x[1].equals("5")) answer = answer+"fifty";
-	    		if(x[1].equals("6")) answer = answer+"sixty";
-	    		if(x[1].equals("7")) answer = answer+"seventy";
-	    		if(x[1].equals("8")) answer = answer+"eighty";
-	    		if(x[1].equals("9")) answer = answer+"ninety";
-	    		if(!x[1].equals("0")) answer = answer + " ";
-	    		return answer+translateEngLastOneDigit(x[2]);
+    			return translateEngxx(x,answer,1);
 	    	}
 	    	if(x.length == 4) {
-	    		
+	    		answer = translateEngLastOneDigit(x[0]) + " thousand";
+	    		if(!x[1].equals("0")) answer = answer + " " + translateEngLastOneDigit(x[1]) + " hundred";
+    			if(!x[2].equals("0")) answer = answer + " ";
+
+    			if(x[2].equals("0")) {
+    				if(!x[3].equals("0"))answer = answer + " ";
+    				return answer + translateEngLastOneDigit(x[3]);
+    			}
+    			return translateEngxx(x,answer,2);
 	    	}
 	        return "";
+	    }
+	    static String translateEngxx(String[] x,String answer,int i) {
+	    	if(x[i].equals("1")) return answer + translateEng1x(x[i+1]);
+    		if(x[i].equals("2")) answer = answer + "twenty";
+    		if(x[i].equals("3")) answer = answer + "thirty";
+    		if(x[i].equals("4")) answer = answer + "fourty";
+    		if(x[i].equals("5")) answer = answer + "fifty";
+    		if(x[i].equals("6")) answer = answer + "sixty";
+    		if(x[i].equals("7")) answer = answer + "seventy";
+    		if(x[i].equals("8")) answer = answer + "eighty";
+    		if(x[i].equals("9")) answer = answer + "ninety";
+    		if(!x[i+1].equals("0")) answer = answer + " ";
+    		return answer + translateEngLastOneDigit(x[i+1]);
 	    }
 	    static String translateEng1x(String n) {
 	    	if(n.equals("0")) return "ten";

@@ -79,4 +79,28 @@ public class IntToEngTest {
 		String actual = IntToEng.translateEng(959);
 		assertThat(actual,is(expected));
 	}
+	@Test
+	public void translateEngで1032がone_thousand_thirty_twoになる() {
+		String expected = "one thousand thirty two";
+		String actual = IntToEng.translateEng(1032);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEngで1000がone_thousandになる() {
+		String expected = "one thousand";
+		String actual = IntToEng.translateEng(1000);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEngで1777がone_thousand_seven_hundred_seventy_sevenになる() {
+		String expected = "one thousand seven hundred seventy seven";
+		String actual = IntToEng.translateEng(1777);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEngで9999がnine_thousand_nine_hundred_nienty_nineになる() {
+		String expected = "nine thousand nine hundred ninety nine";
+		String actual = IntToEng.translateEng(9999);
+		assertThat(actual,is(expected));
+	}
 }
